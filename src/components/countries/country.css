@@ -1,0 +1,15 @@
+
+.element-box{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    gap: 20px;
+}
+.country-image-container{
+    width: 70%;
+    margin: 0 auto;
+    padding: 20px;
+}
+.country-image{
+    width: 100%;
+}
