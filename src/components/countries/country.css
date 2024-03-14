@@ -13,6 +13,13 @@
     color: blueviolet;
 }
 .visit-container{
-    background-color: pink;
+    background-color: rgba(95, 158, 160, 0.582);
     color: black;
+    border: none;
+}
+.mark-country-container{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
 }

@@ -1,13 +1,12 @@
 import { useState } from "react";
-const Country = ({ country }) => {
+const Country = ({ country, markHandle }) => {
     const { name, capital, flags, area, population } = country
-    console.log(country)
     const [visited, setVisited] = useState(false)
     const visitHandle = () => {
         setVisited(!visited)
     }
     return (
-        <div className={visited&&`visit-container`} style={{
+        <div className={visited && `visit-container`} style={{
             border: '2px solid teal',
             margin: '10px',
             padding: "20px",
@@ -19,7 +18,9 @@ const Country = ({ country }) => {
             width: '100%'
         }}>
             <div>
-                <h2 className="country-title">Name: {name?.common}</h2>
+                <h2 style={{
+                    color: visited ? 'black' : 'blueviolet'
+                }}>Name: {name?.common}</h2>
                 <h3 style={{
                     color: capital ? "green" : "red"
                 }}>Capital name: {capital || "Not Found"}</h3>
@@ -28,10 +29,17 @@ const Country = ({ country }) => {
                     fontSize: '24px',
                     fontWeight: "normal"
                 }}>{population}</span></h3>
-                <button style={{
-                    color: visited ? "red" : "teal"
-                }} onClick={visitHandle}>{visited?"Visited":"Not visit"}</button>
-                <p>{visited&&"I visit this Country"}</p>
+                <div style={{
+                    display:"flex",
+                    justifyContent:"space-between",
+                    alignItems:"center"
+                }}>
+                    <button onClick={()=>markHandle(country)}>Mark Us</button>
+                    <button style={{
+                        color: visited ? "red" : "teal"
+                    }} onClick={visitHandle}>{visited ? "Visited" : "Not visit"}</button>
+                </div>
+                <p>{visited && "I visit this Country"}</p>
 
             </div>
             <div className="country-image-container">
